@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Spotify Music Player</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+    
+<!-- Mobile Hamburger Menu -->
+<button
+  id="menuToggle"
+  class="menu-toggle"
+  aria-label="Open navigation menu"
+  aria-expanded="false"
+  aria-controls="sidebar"
+>
+  ☰
+</button>
+
+<!-- Dark overlay behind menu -->
+<div id="menuOverlay" class="menu-overlay">
+
+</div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <h2 class="logo">♫ My Music</h2>
+
+    <nav>
+      <button id="homeBtn">⌂ Home</button>
+      <button id="searchBtn">⌕ Search</button>
+      <button id="libraryBtn">▤ Your Library</button>
+    </nav>
+
+    <!-- MP3 Upload -->
+    <div class="upload-section">
+      <h3>Your Music</h3>
+
+      <label for="musicUpload" class="upload-btn">
+        ＋ Upload Music
+      </label>
+
+      <input
+        type="file"
+        id="musicUpload"
+        accept=".mp3,audio/mpeg"
+        multiple
+        hidden
+      >
+
+      <p id="uploadStatus"></p>
+    </div>
+
+    <h3 class="sidebar-heading">Your Playlists</h3>
+    <div id="playlistMenu"></div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <header>
+      <h1 id="pageTitle">Good Vibes 🎧</h1>
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search songs or artists..."
+      >
+    </header>
+
+    <h2>Made For You</h2>
+    <div class="playlist-grid" id="playlistGrid"></div>
+
+    <h2 id="songHeading">All Songs</h2>
+    <div class="song-list" id="songList"></div>
+  </main>
+
+</div>
+
+<!-- Bottom Music Player -->
+<footer class="music-player">
+
+  <div class="song-info">
+    <div id="cover" class="mini-cover">♫</div>
+    <div class="song-details">
+      <h4 id="songTitle">Select a song</h4>
+      <p id="artistName">Your Music</p>
+    </div>
+  </div>
+
+  <div class="player-center">
+    <div class="controls">
+      <button id="shuffleBtn" title="Shuffle">⤨</button>
+      <button id="prevBtn" title="Previous">⏮</button>
+      <button id="playBtn" class="play-btn" title="Play">▶</button>
+      <button id="nextBtn" title="Next">⏭</button>
+      <button id="repeatBtn" title="Repeat">↻</button>
+    </div>
+
+    <div class="progress-area">
+      <span id="currentTime">0:00</span>
+      <input type="range" id="progress" min="0" max="100" value="0">
+      <span id="duration">0:00</span>
+    </div>
+  </div>
+
+  <div class="volume-area">
+    <span>🔊</span>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+  </div>
+
+</footer>
+
+<audio id="audio"></audio>
+<script src="script.js"></script>
+
+</body>
+</html>
